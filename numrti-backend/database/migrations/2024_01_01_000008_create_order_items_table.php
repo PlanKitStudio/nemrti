@@ -1,0 +1,46 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('order_items', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->uuid('order_id');
+            $table->uuid('phone_number_id');
+            $table->string('phone_number');
+            $table->decimal('price', 10, 2);
+            $table->timestamps();
+            
+            // Foreign keys
+            $table->foreign('order_id')
+                  ->references('id')
+                  ->on('orders')
+                  ->onDelete('cascade');
+            
+            $table->foreign('phone_number_id')
+                  ->references('id')
+                  ->on('phone_numbers')
+                  ->onDelete('restrict');
+            
+            // Indexes
+            $table->index('order_id');
+            $table->index('phone_number_id');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('order_items');
+    }
+};

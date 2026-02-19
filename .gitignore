@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+numrti-backend/vendor/
+
+# Build output
+dist/
+dist-ssr/
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+Thumbs.db
+
+# OS files
+.DS_Store
+Desktop.ini
+
+# Laravel specific
+numrti-backend/storage/logs/*.log
+numrti-backend/bootstrap/cache/packages.php
+numrti-backend/bootstrap/cache/services.php
+numrti-backend/public/storage
+numrti-backend/public/hot
+numrti-backend/public/build
+numrti-backend/.phpunit.result.cache
+numrti-backend/.phpunit.cache/
+
+# Lock files (keep package-lock.json only)
+bun.lockb
